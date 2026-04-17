@@ -1,0 +1,9 @@
+# PowerShell midlertidige filer
+.history/
+*.log
+*.json
+!README.md
+
+# OS-spesifikke filer
+.DS_Store
+Thumbs.db
