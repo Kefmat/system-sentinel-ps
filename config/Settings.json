@@ -1,0 +1,21 @@
+{
+    "SystemSettings": {
+        "ProjectName": "System Sentinel Framework",
+        "Environment": "Production",
+        "ScanPaths": [
+            {
+                "Path": "C:\\Data\\Sensitive",
+                "Description": "Kritisk fildata"
+            }
+        ],
+        "Storage": {
+            "BaselineFolder": ".\\Config",
+            "ReportFolder": ".\\Reports",
+            "LogFolder": ".\\Logs"
+        },
+        "Reporting": {
+            "GenerateHtml": true,
+            "AutoOpenReport": true
+        }
+    }
+}

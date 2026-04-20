@@ -1,9 +1,12 @@
-# PowerShell midlertidige filer
-.history/
+# Logger og midlertidige filer
 *.log
-*.json
-!README.md
+.history/
 
-# OS-spesifikke filer
+# Utdata fra skanninger (Beskytter ditt lokale oppsett)
+Reports/
+Config/FileBaseline.json
+Config/ACLBaseline.json
+
+# OS-filer
 .DS_Store
 Thumbs.db
