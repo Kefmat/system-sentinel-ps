@@ -77,15 +77,32 @@ foreach ($Target in $Settings.ScanPaths) {
     # Kjører Filintegritetssjekk
     if (Test-Path .\Core\Compare-FileIntegrity.ps1) {
         Write-SentinelLog "[1/2] Starter filskanning..."
-        # For enkelhet i denne versjonen simulerer vi innsamlingen av objekter:
-        .\Core\Compare-FileIntegrity.ps1 -SourcePath $Target.Path -BaselinePath $BaselineFile
+        
+        # Fanger opp faktiske avvik returnert fra skriptet
+        $FileIssues = .\Core\Compare-FileIntegrity.ps1 -SourcePath $Target.Path -BaselinePath $BaselineFile
+        
+        if ($FileIssues) {
+            foreach ($Issue in $FileIssues) {
+                $AuditResults.Findings += $Issue
+                $AuditResults.IssueCount++
+            }
+        }
         $AuditResults.ChecksRun++
     }
 
     # Kjør Rettighetssjekk
     if (Test-Path .\Core\Watch-SecurityPermissions.ps1) {
         Write-SentinelLog "[2/2] Analyserer NTFS-rettigheter..."
-        .\Core\Watch-SecurityPermissions.ps1 -SourcePath $Target.Path -BaselinePath $ACLBaseline
+        
+        # Fanger opp faktiske avvik returnert fra skriptet
+        $AclIssues = .\Core\Watch-SecurityPermissions.ps1 -SourcePath $Target.Path -BaselinePath $ACLBaseline
+        
+        if ($AclIssues) {
+            foreach ($Issue in $AclIssues) {
+                $AuditResults.Findings += $Issue
+                $AuditResults.IssueCount++
+            }
+        }
         $AuditResults.ChecksRun++
     }
 }
