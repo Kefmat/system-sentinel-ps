@@ -2,6 +2,7 @@
     "SystemSettings": {
         "ProjectName": "System Sentinel Framework",
         "Environment": "Production",
+        "AutoRepair": true,
         "ScanPaths": [
             {
                 "Path": "C:\\Data\\Sensitive",
@@ -15,7 +16,11 @@
         },
         "Reporting": {
             "GenerateHtml": true,
-            "AutoOpenReport": true
+            "AutoOpenReport": true,
+            "Alerts": {
+                "DiscordWebhook": "",
+                "EnableCriticalAlerts": false
+            }
         }
     }
 }
