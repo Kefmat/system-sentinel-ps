@@ -31,6 +31,11 @@ graph TD
 * **Enterprise Logging:** Omfattende loggføring til fil med fargekodet terminal-output for sanntids overvåking.
 * **Sentralisert Konfigurasjon:** Enkel styring av miljøer via `Settings.json`.
 
+## Demo(Snapshot)
+
+<img width="1868" height="769" alt="image" src="https://github.com/user-attachments/assets/811c5da8-484a-44a5-97c6-e63fa0331a4d" />
+
+
 ## Prosjektstruktur
 * `/Core`: Kjernelogikk for fil- og rettighetsskanning.
 * `/Modules`: Rapportgeneratorer og hjelpefunksjoner.
